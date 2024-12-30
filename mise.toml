@@ -1,0 +1,9 @@
+[tasks.build]
+run = "uv build"
+
+[tasks.clean]
+run = "rm -rf dist module.tar.gz"
+
+[tasks.package]
+run = "tar -czf module.tar.gz meta.json *.sh dist"
+depends = ["build"]

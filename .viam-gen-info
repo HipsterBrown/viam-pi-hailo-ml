@@ -1,0 +1,12 @@
+{
+  "module_name": "pi-hailo-ml",
+  "namespace": "hipsterbrown",
+  "language": "python",
+  "resource_type": "service",
+  "resource_subtype": "mlmodel",
+  "model_name": "hailo-rt",
+  "enable_cloud_build": false,
+  "initialize_git": false,
+  "generator_version": "0.1.0",
+  "generated_on": "2024-12-30T20:10:58.36826Z"
+}
