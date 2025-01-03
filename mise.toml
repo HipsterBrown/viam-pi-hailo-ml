@@ -5,5 +5,5 @@ run = "uv build"
 run = "rm -rf dist module.tar.gz"
 
 [tasks.package]
-run = "tar -czf module.tar.gz meta.json *.sh dist"
+run = "tar -czf module.tar.gz meta.json *.sh dist assets"
 depends = ["build"]

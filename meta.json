@@ -14,7 +14,7 @@
   "models": [
     {
       "api": "rdk:service:mlmodel",
-      "model": "hipsterbrown:pi-hailo-ml:hailo-rt"
+      "model": "hipsterbrown:mlmodel:hailo-rt"
     }
   ],
   "entrypoint": "./run.sh",

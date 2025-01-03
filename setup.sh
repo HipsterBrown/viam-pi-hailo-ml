@@ -19,7 +19,7 @@ if [ ! "$(command -v uv)" ]; then
   curl -LsSf https://astral.sh/uv/install.sh | sh
 fi
 
-sudo apt install -qqy python3-opencv hailofw hailort python3-hailort hailo-dkms >/dev/null 2>&1
+# sudo apt install -qqy python3-opencv hailofw hailort python3-hailort hailo-dkms python3-picamera2 --no-install-recommends >/dev/null 2>&1
 
 uv venv --system-site-packages $VENV_NAME
 
