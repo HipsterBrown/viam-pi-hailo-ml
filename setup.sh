@@ -4,7 +4,7 @@ set -euo pipefail
 cd $(dirname $0)
 
 # Create a virtual environment to run our code
-VENV_NAME="venv"
+VENV_NAME=".venv"
 PYTHON="$VENV_NAME/bin/python"
 ENV_ERROR="This module requires Python >=3.8, pip, and virtualenv to be installed."
 
@@ -22,9 +22,6 @@ fi
 # sudo apt install -qqy python3-opencv hailofw hailort python3-hailort hailo-dkms python3-picamera2 --no-install-recommends >/dev/null 2>&1
 
 uv venv --system-site-packages $VENV_NAME
-
-echo "Virtualenv found/created. Installing/upgrading Python packages..."
-source $VENV_NAME/bin/activate
 if ! uv pip install ./dist/*.whl -q; then
   exit 1
 fi

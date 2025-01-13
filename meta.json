@@ -3,7 +3,7 @@
   "module_id": "hipsterbrown:pi-hailo-ml",
   "visibility": "public",
   "url": "https://github.com/hipsterbrown/viam-pi-hailo-ml",
-  "description": "Modular mlmodel service: hailo-rt",
+  "description": "Modular vision service: hailo-rt",
   "build": {
     "build": "mise run package",
     "path": "module.tar.gz",
@@ -13,8 +13,8 @@
   },
   "models": [
     {
-      "api": "rdk:service:mlmodel",
-      "model": "hipsterbrown:mlmodel:hailo-rt"
+      "api": "rdk:service:vision",
+      "model": "hipsterbrown:vision:hailo-rt"
     }
   ],
   "entrypoint": "./run.sh",
