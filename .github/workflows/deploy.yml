@@ -1,0 +1,39 @@
+# see https://github.com/viamrobotics/build-action for help
+on:
+  release:
+    types:
+      - released
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup mise
+        uses: jdx/mise-action@v2
+      - name: Setup uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+      - name: Download viam-cli
+        run: |
+          curl -L -o ./viam-cli "https://storage.googleapis.com/packages.viam.com/apps/viam-cli/viam-cli-latest-linux-amd64"
+          chmod +x ./viam-cli
+      - name: Build module
+        run: |
+          ./viam-cli module build local
+      - name: Update module meta.json in registry
+        env:
+          API_KEY_ID: ${{ secrets.viam_key_id }}
+          API_KEY: ${{ secrets.viam_key_value }}
+        run: |
+          ./viam-cli login api-key --key-id "$API_KEY_ID" --key "$API_KEY"
+          ./viam-cli module update
+      - uses: viamrobotics/upload-module@v1
+        with:
+          module-path: module.tar.gz
+          platform: linux/arm64
+          version: ${{ github.ref_name }}
+          key-id: ${{ secrets.viam_key_id }}
+          key-value: ${{ secrets.viam_key_value }}
