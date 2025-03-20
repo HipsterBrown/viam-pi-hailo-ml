@@ -14,7 +14,9 @@
   "models": [
     {
       "api": "rdk:service:vision",
-      "model": "hipsterbrown:vision:hailo-rt"
+      "model": "hipsterbrown:vision:hailo-rt",
+      "short_description": "Run computer vision tasks directly on the Raspberry Pi AI Kit or HAT+.",
+      "markdown_link": "README.md#configure-your-pi-hailo-ml-vision-service"
     }
   ],
   "entrypoint": "./run.sh",
